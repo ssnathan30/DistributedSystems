@@ -1,0 +1,15 @@
+{"action":1,"values":["swaminathan",1234]}
+
+{"action":2,"values":["swaminathan",1234]}
+
+{"action":3,"values":[]}
+
+{"action":4,"values":[]}
+
+{"action":5,"values":{"item":[{"name":"apple","category":"food","keywords":"red,round,fruit","condition":"new","sale_price":10,"quantity":100},{"name":"mango","category":"food","keywords":"yellow,round,fruit","condition":"new","sale_price":20,"quantity":100}]}}
+
+{"action":6,"values":[{"name":"apple","price":20}]}
+
+{"action":7,"values":[{"name":"apple","quantity":9}]}
+
+{"action":8,"values":[]}
