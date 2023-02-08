@@ -1,21 +1,33 @@
 # server.py
 
+import logging
 import selectors
 import socket
-from server_seller_functions import server_seller
+import time
 import json
-import sys, os
+import sys
+import os
+import pathlib
+import traceback
+from seller_server_interface import server_seller
 
-file_dir = os.path.dirname(__file__)
-sys.path.append(os.path.abspath(os.path.join(file_dir, os.pardir)))
+#For importing packages from other folder
+#file_dir = os.path.dirname(__file__)
+#sys.path.append(os.path.abspath(os.path.join(file_dir, os.pardir)))
 
-from storage.init_db import marketplace_db
+# path to src directory
+src_dir = pathlib.Path(__file__).parent.parent.resolve()
 
 sel = selectors.DefaultSelector()
 clients = {}
 client_session = {}
-db_obj = marketplace_db()
-db_conn = db_obj.get_connection()
+
+# Create and configure logger
+logging.basicConfig(filename="{0}/logs/seller_server_throughput.log".format(src_dir),
+                    format='%(message)s',
+                    )
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 def accept(sock, mask):
     conn, addr = sock.accept()
@@ -23,7 +35,7 @@ def accept(sock, mask):
     conn.setblocking(False)
     
     # Create client session
-    seller_obj = server_seller(db_conn)
+    seller_obj = server_seller()
     clients[conn.fileno()] = conn
     client_session[conn] = seller_obj
     sel.register(conn, selectors.EVENT_READ, read)
@@ -33,22 +45,31 @@ def read(conn, mask):
     if data:
         print('Received data:', data.decode())
         input  = json.loads(data.decode())
+
+        op_code = input["op_code"]
         action = input["action"]
-        values = input["values"]
+        value = input["value"]
 
         seller = client_session[conn]
-        opcode, result = seller.process(action,values)
+        
+        try:
+            # Time the execution
+            start_time = time.time()
+            opcode, result = seller.process(op_code, value, action)
+            end_time = time.time()
+            logger.info(f'{(end_time-start_time):.9f}')
 
-        if opcode == -1:
-            conn.sendall(bytes(result.encode()))
-            print('Closing connection to', conn)
-            sel.unregister(conn)
-            del clients[conn.fileno()]
-            del client_session[conn]
-            conn.close()
-            
-        else:
-            conn.sendall(bytes(result.encode()))
+            if opcode == -1 :
+                conn.sendall(bytes(result.encode()))
+                print('Closing connection to', conn)
+                sel.unregister(conn)
+                del clients[conn.fileno()]
+                del client_session[conn]
+                conn.close()        
+            else:
+                conn.sendall(bytes(result.encode()))
+        except:
+            print(str(traceback.format_exc()))
         """
         for fileno, client in clients.items():
             if fileno == conn.fileno():
@@ -64,7 +85,7 @@ def read(conn, mask):
 def run_server():
     try:
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server.bind(('localhost', 6555))
+        server.bind(('localhost', 6666))
         server.listen()
         server.setblocking(False)
         sel.register(server, selectors.EVENT_READ, accept)
@@ -76,7 +97,7 @@ def run_server():
                 callback(key.fileobj, mask)
     except Exception as e:
         print("Closing server")
-        print(str(e))
+        print(str(traceback.format_exc()))
         server.close()
     finally:
         print("Closing server")

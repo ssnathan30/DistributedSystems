@@ -1,0 +1,74 @@
+[
+    {
+        "op_code": 1,
+        "value": {
+            "buyer_id": 1,
+            "username": "gokul",
+            "password": "udp"
+        },
+        "action": "Create_Account"
+    },
+    {
+        "op_code": 2,
+        "value": {
+            "buyer_id": 1,
+            "username": "gokul",
+            "password": "udp"
+        },
+        "action": "Login"
+    },
+    {
+        "op_code": 4,
+        "value": {
+            "seller_id" :1
+        },
+        "action": "Get_Seller_Rating"
+    },
+    {
+        "op_code": 5,
+        "value": {
+            "item_id" : 1,
+            "quantity": 10
+        },
+        "action": "Add_Item_Cart"
+    },
+    {
+        "op_code": 6,
+        "value": {
+            "item_id": 1,
+            "quantity": 1
+        },
+        "action": "Remove_Item_Cart"
+    },
+    {
+        "op_code": 8,
+        "value": "",
+        "action": "Display_Cart"
+    },
+    {
+        "op_code": 9,
+        "value": {
+            "item_category" : 1,
+            "keywords" : "Red,Ball,Hello"
+        },
+        "action": "Display_Cart"
+    },
+    {
+        "op_code": 9,
+        "value": {
+            "item_category" : 1,
+            "keywords" : "Fiber,Yellow"
+        },
+        "action": "Search_Items"
+    },
+    {
+        "op_code": 7,
+        "value": "",
+        "action": "Clear_Cart"
+    },
+    {
+        "op_code": 3,
+        "value" : "",
+        "action": "Logout"
+    }
+]

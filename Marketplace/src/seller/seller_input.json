@@ -1,0 +1,111 @@
+[
+    {
+        "op_code": 1,
+        "value": {
+            "seller_id": 1,
+            "username": "swaminathan",
+            "password": "tcpip"
+        },
+        "action": "Create_Account"
+    },
+    {
+        "op_code": 2,
+        "value": {
+            "seller_id": 1,
+            "username": "swaminathan",
+            "password": "tcpip"
+        },
+        "action": "Login"
+    },
+    {
+        "op_code": 4,
+        "value": "",
+        "action": "Get_Seller_Rating"
+    },
+    {
+        "op_code": 5,
+        "value": {
+            "item": {
+                "item_id": 1,
+                "item_name": "Apple",
+                "item_category": 1,
+                "keywords": "Red,Round,Fruit",
+                "condition": "new",
+                "sale_price": "10.5"
+            },
+            "quantity": "10"
+        },
+        "action": "Add_Item"
+    },
+    {
+        "op_code": 5,
+        "value": {
+            "item": {
+                "item_id": 3,
+                "item_name": "Banana",
+                "item_category": 1,
+                "keywords": "Yellow,Fibre,Fruit",
+                "condition": "new",
+                "sale_price": "5"
+            },
+            "quantity": "70"
+        },
+        "action": "Add_Item"
+    },
+    {
+        "op_code": 5,
+        "value": {
+            "item": {
+                "item_id": 4,
+                "item_name": "Orange",
+                "item_category": 1,
+                "keywords": "Round,orange,Fruit",
+                "condition": "new",
+                "sale_price": "21"
+            },
+            "quantity": "100"
+        },
+        "action": "Add_Item"
+    },
+    {
+        "op_code": 5,
+        "value": {
+            "item": {
+                "item_id": 2,
+                "item_name": "Pen",
+                "item_category": 2,
+                "keywords": "Writing,Blue,Black",
+                "condition": "new",
+                "sale_price": "5"
+            },
+            "quantity": "100"
+        },
+        "action": "Add_Item"
+    },
+    {
+        "op_code": 6,
+        "value": {
+            "item_id": 1,
+            "sale_price": "20"
+        },
+        "action": "Change_Sale_Price"
+    },
+    {
+        "op_code": 7,
+        "value": {
+            "item_id": 1,
+            "quantity": 1
+        },
+        "action": "Remove_Item"
+    },
+    {
+        "op_code": 8,
+        "value": "",
+        "action": "Display_Items"
+    },
+    {
+        "op_code": 3,
+        "value" : "",
+        "action": "Logout"
+    }
+]
