@@ -51,7 +51,7 @@
             "item_category" : 1,
             "keywords" : "Red,Ball,Hello"
         },
-        "action": "Display_Cart"
+        "action": "Search_Items"
     },
     {
         "op_code": 9,

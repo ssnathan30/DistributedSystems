@@ -11,7 +11,10 @@ def read_input():
 def parse_data(data):
     data = json.loads(data)
     for action in data:
-        print(json.dumps(action))
-
+        if action["op_code"] == 8:
+            for i in range(1000):
+                print(json.dumps(action))
+        else:
+            print(json.dumps(action))
 
 parse_data(read_input())
