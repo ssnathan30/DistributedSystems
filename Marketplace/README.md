@@ -45,10 +45,15 @@ This module allows high-level and efficient I/O multiplexing, built upon the sel
     - After the message is processed, API returns a response object which is passed back to the client.
     - In case of database operations, The server objects sends the request to the storage component using the connection object.
     - In order to calculate the server throughout, The server processing time is logged to "<seller/buyer>_server_throughput.log" inside the logs folder.
-#### Semantics for Keyword search:
-For this functionality, I am using the existing python package “fuzzywuzzy” which calculates the matching score given a word and a list of words.
-It uses Levenshtein Distance to calculate the differences between sequences.<br>
+#### Semantics for Keyword search
+- For this functionality, I am using the existing python package “fuzzywuzzy” which calculates the matching score given a word and a list of words.
+- It uses Levenshtein Distance to calculate the differences between sequences.
 ![image info](./Images/fuzzywuzzy.png)
+- Based on the item category, items are filtered.
+- Then each item's keyword gets a score based on the input using the fuzzywuzzy library.
+- Then the item along with its score is added to the heap.
+- Currently, We are showing the top result based on the score. 
+- This can be extended to show top 10 items based on keywords.
 
 #### Current state
 The source code is divided according to the components mentioned above.<br>
