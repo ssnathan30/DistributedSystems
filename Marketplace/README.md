@@ -113,5 +113,4 @@ The source code is divided according to the components mentioned above.<br>
     - Server takes care of validating the authenticity of the request
     - New TCP connection is made for every database operation.
     - Any operation can be performed by ther user only after login. SessionID is stored in-memory.
-    - All the tables are currently part of one database.
     - Added 'cart' table to the database to make the client stateless.
