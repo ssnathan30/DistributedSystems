@@ -16,4 +16,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["python3"]
 
-CMD ["-m", "seller_server"]
+CMD ["-u","-m", "seller_server"]
