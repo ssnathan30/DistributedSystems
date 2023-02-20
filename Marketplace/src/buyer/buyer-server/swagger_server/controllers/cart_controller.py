@@ -14,25 +14,6 @@ import pathlib
 import os
 import time
 
-
-src_dir = pathlib.Path(__file__).parent.parent.resolve()
-logging.basicConfig(filename="{0}/logs/buyer_server_throughput.log".format(src_dir),
-                    format='%(message)s',
-                    )
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
-
-def timer_func(func):
-    # This function shows the execution time of 
-    # the function object passed
-    def wrap_func(*args, **kwargs):
-        t1 = time()
-        result = func(*args, **kwargs)
-        t2 = time()
-        logger.info(f'{func.__name__!r},{(t2-t1):.4f}')
-        return result
-    return wrap_func
-
 def session_active(buyer_id):
     
     #Check if user data exist
