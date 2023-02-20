@@ -1,0 +1,505 @@
+---
+swagger: "2.0"
+info:
+  description: "API for managing seller accounts and items for sale"
+  version: "1.0.0"
+  title: "Seller API"
+basePath: "/api/v1"
+paths:
+  /accounts:
+    post:
+      tags:
+      - "accounts"
+      summary: "Create an account"
+      operationId: "accounts_post"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "username"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "name"
+        in: "formData"
+        required: false
+        type: "string"
+      - name: "seller_id"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Account created successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/inline_response_500"
+      x-swagger-router-controller: "seller_server.controllers.accounts_controller"
+  /login:
+    post:
+      tags:
+      - "authentication"
+      summary: "Login"
+      operationId: "login_post"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "username"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Login in successful"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/inline_response_500_1"
+      x-swagger-router-controller: "seller_server.controllers.authentication_controller"
+  /logout:
+    post:
+      tags:
+      - "authentication"
+      summary: "Logout"
+      operationId: "logout_post"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "seller_id"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Logout successful"
+          schema:
+            $ref: "#/definitions/inline_response_200_2"
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/inline_response_401"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/inline_response_500_2"
+      x-swagger-router-controller: "seller_server.controllers.authentication_controller"
+  /seller/rating:
+    get:
+      tags:
+      - "sellers"
+      summary: "Get seller rating"
+      operationId: "seller_rating_get"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "seller_id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Seller rating retrieved successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_3"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400_1"
+        "404":
+          description: "Seller not found"
+          schema:
+            $ref: "#/definitions/inline_response_404"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/inline_response_500_2"
+      x-swagger-router-controller: "seller_server.controllers.sellers_controller"
+  /items:
+    post:
+      tags:
+      - "items"
+      summary: "Put an item for sale"
+      operationId: "items_post"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "item_id"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "item_name"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "item_category"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "keywords"
+        in: "formData"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      - name: "condition"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "sale_price"
+        in: "formData"
+        required: true
+        type: "number"
+        format: "float"
+      - name: "quantity"
+        in: "formData"
+        required: true
+        type: "integer"
+      - name: "seller_id"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "201":
+          description: "Item added successfully"
+          schema:
+            $ref: "#/definitions/inline_response_201"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400_2"
+      x-swagger-router-controller: "seller_server.controllers.items_controller"
+  /items/{item_id}/sale_price:
+    put:
+      tags:
+      - "items"
+      summary: "Change the sale price of an item"
+      operationId: "items_item_id_sale_price_put"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "item_id"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "new_sale_price"
+        in: "formData"
+        required: true
+        type: "number"
+        format: "float"
+      - name: "seller_id"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Sale price updated successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_4"
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/inline_response_401"
+        "404":
+          description: "Item not found"
+          schema:
+            $ref: "#/definitions/inline_response_404_1"
+      x-swagger-router-controller: "seller_server.controllers.items_controller"
+  /items/{item_id}/delete:
+    delete:
+      tags:
+      - "items"
+      summary: "Remove an item from sale"
+      operationId: "items_item_id_delete"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "item_id"
+        in: "path"
+        required: true
+        type: "integer"
+      - name: "quantity"
+        in: "query"
+        required: true
+        type: "integer"
+      - name: "seller_id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Item removed successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_5"
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/inline_response_401"
+        "404":
+          description: "Item not found"
+          schema:
+            $ref: "#/definitions/inline_response_404_1"
+      x-swagger-router-controller: "seller_server.controllers.items_controller"
+  /display:
+    get:
+      tags:
+      - "items"
+      summary: "Display items"
+      operationId: "display_get"
+      parameters:
+      - name: "seller_id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Items retrieved successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_7"
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/inline_response_401"
+        "404":
+          description: "Seller not found"
+          schema:
+            $ref: "#/definitions/inline_response_404"
+      x-swagger-router-controller: "seller_server.controllers.items_controller"
+definitions:
+  inline_response_404:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Seller not found"
+        description: "Error message"
+  inline_response_404_1:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Item not found"
+        description: "Error message"
+  inline_response_200_5:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Item removed successfully"
+        description: "Success message"
+    example:
+      message: "Item removed successfully"
+  inline_response_200_6:
+    type: "object"
+    properties:
+      items:
+        type: "array"
+        example:
+        - item_id: "123"
+          item_name: "Widget"
+          item_category: "Electronics"
+          keywords:
+          - "gadget"
+          - "tech"
+          condition: "New"
+          sale_price: 9.99
+          quantity: 10
+          seller_id: "456"
+        - item_id: "456"
+          item_name: "Gizmo"
+          item_category: "Toys"
+          keywords:
+          - "playful"
+          - "fun"
+          condition: "Used"
+          sale_price: 19.99
+          quantity: 5
+          seller_id: "456"
+        items:
+          $ref: "#/definitions/inline_response_200_6_items"
+    example:
+      items:
+      - item_id: "123"
+        item_name: "Widget"
+        item_category: "Electronics"
+        keywords:
+        - "gadget"
+        - "tech"
+        condition: "New"
+        sale_price: 9.99
+        quantity: 10
+        seller_id: "456"
+      - item_id: "456"
+        item_name: "Gizmo"
+        item_category: "Toys"
+        keywords:
+        - "playful"
+        - "fun"
+        condition: "Used"
+        sale_price: 19.99
+        quantity: 5
+        seller_id: "456"
+  inline_response_500_2:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "An error occurred while log out"
+        description: "Error message"
+  inline_response_500_1:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "An error occurred while login"
+        description: "Error message"
+  inline_response_200_6_items:
+    type: "object"
+    properties:
+      item_id:
+        type: "string"
+        example: "123"
+      item_name:
+        type: "string"
+        example: "Widget"
+      item_category:
+        type: "string"
+        example: "Electronics"
+      keywords:
+        type: "array"
+        example:
+        - "gadget"
+        - "tech"
+        items:
+          type: "string"
+          example: "gadget"
+      condition:
+        type: "string"
+        example: "New"
+      sale_price:
+        type: "number"
+        format: "float"
+        example: 9.99
+      quantity:
+        type: "integer"
+        example: 10
+      seller_id:
+        type: "string"
+        example: "456"
+  inline_response_200_1:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Login Successful"
+        description: "Success message"
+    example:
+      message: "Login Successful"
+  inline_response_201:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Item added successfully"
+        description: "Success message"
+    example:
+      message: "Item added successfully"
+  inline_response_200:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Account created successfully"
+        description: "Success message"
+    example:
+      message: "Account created successfully"
+  inline_response_200_2:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "logged out"
+        description: "Success message"
+    example:
+      message: "logged out"
+  inline_response_200_3:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Seller rating retrieved successfully"
+        description: "Success message"
+    example:
+      message: "Seller rating retrieved successfully"
+  inline_response_200_4:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Sale price updated successfully"
+        description: "Success message"
+    example:
+      message: "Sale price updated successfully"
+  inline_response_500:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "An error occurred while creating the account"
+        description: "Error message"
+  inline_response_401:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Unauthorized"
+        description: "Error message"
+  inline_response_400_2:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Invalid Request"
+        description: "Error message"
+  inline_response_400:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Username or password not provided"
+        description: "Error message"
+  inline_response_400_1:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Seller Rating Retrival Unsuccessful"
+        description: "Error message"
+  inline_response_200_7:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      metadata:
+        type: "string"
+    example: "{message='message', metadata='Any Additional Info'}"

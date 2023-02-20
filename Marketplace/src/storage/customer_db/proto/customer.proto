@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+service CustomerDatabaseServer {
+  rpc GetData(GetDataRequest) returns (GetDataResponse) {}
+  rpc InsertData(InsertDataRequest) returns (InsertDataResponse) {}
+  rpc UpdateData(UpdateDataRequest) returns (UpdateDataResponse) {}
+  rpc DeleteData(DeleteDataRequest) returns (DeleteDataResponse) {}
+}
+
+message GetDataRequest {
+  string query = 1;
+}
+
+message GetDataResponse {
+  repeated Row rows = 1;
+  Error error = 2;
+}
+
+message InsertDataRequest {
+  string query = 1;
+}
+
+message InsertDataResponse {
+  int64 insert_id = 1;
+  Error error = 2;
+}
+
+message UpdateDataRequest {
+  string query = 1;
+}
+
+message UpdateDataResponse {
+  int64 affected_rows = 1;
+  Error error = 2;
+}
+
+message DeleteDataRequest {
+  string query = 1;
+}
+
+message DeleteDataResponse {
+  int64 affected_rows = 1;
+  Error error = 2;
+}
+
+message Row {
+  repeated ColumnValue values = 1;
+}
+
+message ColumnValue {
+  string column_name = 1;
+  string column_value = 2;
+}
+
+message Error {
+  int32 error_code = 1;
+  string error_message = 2;
+}

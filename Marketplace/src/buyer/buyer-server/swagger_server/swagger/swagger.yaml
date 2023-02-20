@@ -1,0 +1,523 @@
+---
+swagger: "2.0"
+info:
+  description: "API for creating and managing buyer accounts"
+  version: "1.0.0"
+  title: "Buyer Account API"
+basePath: "/api/v1"
+schemes:
+- "http"
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /account:
+    post:
+      tags:
+      - "Buyer Account"
+      summary: "Create a new buyer account"
+      operationId: "account_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "account"
+        required: true
+        schema:
+          $ref: "#/definitions/account"
+      responses:
+        "201":
+          description: "Successfully created a new account"
+          schema:
+            $ref: "#/definitions/inline_response_201"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_account_controller"
+  /search-items:
+    get:
+      tags:
+      - "Buyer Actions"
+      summary: "Search for items"
+      operationId: "search_items_get"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "item_category"
+        in: "query"
+        required: true
+        type: "integer"
+      - name: "keywords"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "buyer_id"
+        in: "query"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "List of Items"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_actions_controller"
+  /purchase:
+    post:
+      tags:
+      - "Buyer Actions"
+      summary: "Purchase items added in the cart"
+      operationId: "purchase_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "buyer_id"
+        in: "query"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "card_details"
+        required: true
+        schema:
+          $ref: "#/definitions/card_details"
+      responses:
+        "200":
+          description: "Purchase Info"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_actions_controller"
+  /seller_rating:
+    get:
+      tags:
+      - "Buyer Actions"
+      summary: "Get seller rating"
+      operationId: "seller_rating_get"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "seller_id"
+        in: "query"
+        required: true
+        type: "integer"
+      - name: "buyer_id"
+        in: "query"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Seller rating retrieved successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_2"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_actions_controller"
+  /seller_feedback:
+    post:
+      tags:
+      - "Buyer Actions"
+      summary: "Provide seller Feedback"
+      operationId: "seller_feedback_post"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "seller_id"
+        in: "query"
+        required: true
+        type: "integer"
+      - name: "buyer_id"
+        in: "query"
+        required: true
+        type: "integer"
+      - name: transaction_id
+        in: "query"
+        type: "string"
+        required: true
+      - name: item_id
+        in: "query"
+        type: "integer"
+        required: true
+      - in: query
+        name: feedback_rating
+        description: "-1 for thumbs down and 1 for thumbs up"
+        required: true
+        type: "integer"
+        enum: [1, -1]
+      responses:
+        "200":
+          description: "Posted Feedback Successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_3"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_actions_controller"
+  /purchase_history:
+    get:
+      tags:
+      - "Buyer Actions"
+      summary: "Get purchase history"
+      operationId: "purchase_history_get"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "buyer_id"
+        in: "query"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Purchase History"
+          schema:
+            $ref: "#/definitions/inline_response_200_4"
+        "400":
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/inline_response_400"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_actions_controller"
+  /login:
+    post:
+      tags:
+      - "Buyer Account"
+      summary: "Log in to an existing account"
+      operationId: "login_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "credentials"
+        required: true
+        schema:
+          $ref: "#/definitions/credentials"
+      responses:
+        "200":
+          description: "Successfully logged in"
+          schema:
+            $ref: "#/definitions/inline_response_200_5"
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/inline_response_401"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_account_controller"
+  /logout/{buyer_id}:
+    get:
+      tags:
+      - "Buyer Account"
+      summary: "Log out of an existing account"
+      operationId: "logout_buyer_id_get"
+      parameters:
+      - name: "buyer_id"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Successfully logged out"
+          schema:
+            $ref: "#/definitions/inline_response_200_6"
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/inline_response_401"
+      x-swagger-router-controller: "swagger_server.controllers.buyer_account_controller"
+  /cart/add:
+    post:
+      tags:
+      - "Cart"
+      summary: "Add item to shopping cart"
+      description: "Adds an item to the shopping cart of a buyer"
+      operationId: "cart_add_post"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Item ID and quantity to be added to cart"
+        required: true
+        schema:
+          $ref: "#/definitions/body"
+      responses:
+        "200":
+          description: "Item added to shopping cart successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Invalid request body or item ID or quantity"
+      x-swagger-router-controller: "swagger_server.controllers.cart_controller"
+  /cart/remove:
+    delete:
+      tags:
+      - "Cart"
+      summary: "Remove item from shopping cart"
+      description: "Removes an item from the shopping cart of a buyer"
+      operationId: "cart_remove_delete"
+      parameters:
+      - name: "item_id"
+        in: "query"
+        description: "ID of the item to be removed from the cart"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "quantity"
+        in: "query"
+        description: "Quantity of the item to be removed from the cart"
+        required: true
+        type: "integer"
+        format: "int32"
+      - name: "buyer_id"
+        in: "query"
+        description: "ID of the buyer whose cart the item should be removed from"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Item removed from shopping cart successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Invalid request parameters or item not found in cart"
+      x-swagger-router-controller: "swagger_server.controllers.cart_controller"
+  /clear-cart:
+    post:
+      tags:
+      - "Cart"
+      summary: "Clear the shopping cart for a given buyer"
+      operationId: "clear_cart_post"
+      parameters:
+      - name: "buyer_id"
+        in: "query"
+        description: "ID of the buyer whose shopping cart should be cleared"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Shopping cart successfully cleared"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Invalid request, missing or invalid parameters"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "swagger_server.controllers.cart_controller"
+  /display-cart:
+    get:
+      tags:
+      - "Cart"
+      summary: "Get the contents of the shopping cart for a given buyer"
+      operationId: "display_cart_get"
+      parameters:
+      - name: "buyer_id"
+        in: "query"
+        description: "ID of the buyer whose shopping cart should be displayed"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Shopping cart contents successfully retrieved"
+          # examples:
+          #   application/json:
+          #     items:
+          #     - item_id: "123"
+          #       item_name: "Apple Watch"
+          #       item_category: "Electronics"
+          #       sale_price: 299.990000000000009094947017729282379150390625
+          #       quantity: 1
+          #     - item_id: "456"
+          #       item_name: "Nike Running Shoes"
+          #       item_category: "Shoes"
+          #       sale_price: 99.9899999999999948840923025272786617279052734375
+          #       quantity: 2
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Invalid request, missing or invalid parameters"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "swagger_server.controllers.cart_controller"
+definitions:
+  inline_response_200_5:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "string"
+    example: "{message=Logged in successfully, buyer_id=12345}"
+  credentials:
+    type: "object"
+    required:
+    - "password"
+    - "username"
+    properties:
+      username:
+        type: "string"
+      password:
+        type: "string"
+    example:
+      username: "buyer123"
+      password: "mypassword"
+  inline_response_200_6:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+    example: "{message=Logged out successfully}"
+  inline_response_200_7:
+    type: "object"
+    properties:
+      items:
+        type: "array"
+        items:
+          $ref: "#/definitions/inline_response_200_7_items"
+  body:
+    type: "object"
+    required:
+    - "buyer_id"
+    - "item_id"
+    - "quantity"
+    properties:
+      item_id:
+        type: "integer"
+        format: "int64"
+        description: "ID of the item to be added to the cart"
+      quantity:
+        type: "integer"
+        format: "int32"
+        description: "Quantity of the item to be added to the cart"
+      buyer_id:
+        type: "integer"
+        format: "int64"
+        description: "ID of the buyer whose cart the item should be added to"
+  card_details:
+    type: "object"
+    required:
+    - "buyer_id"
+    - "expiration_date"
+    - "name"
+    properties:
+      name:
+        type: "string"
+      card_number:
+        type: "integer"
+      expiration_date:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example:
+      name: "Joe"
+      card_number: 7200256584
+      expiration_date: "01/99/2023"
+      buyer_id: 12345
+  inline_response_201:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example: "{message=Account created successfully, buyer_id=12345}"
+  inline_response_200_1:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example: "{message=Items purchased, buyer_id=12345}"
+  inline_response_200:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example: "{message={List of items}, buyer_id=12345}"
+  inline_response_200_2:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example: "{message=Seller Rating : 4, buyer_id=12345}"
+  inline_response_200_7_items:
+    type: "object"
+    properties:
+      item_id:
+        type: "string"
+      item_name:
+        type: "string"
+      item_category:
+        type: "string"
+      sale_price:
+        type: "number"
+      quantity:
+        type: "integer"
+  inline_response_200_3:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example: "{message=Posted Feedback Successfully, buyer_id=12345}"
+  inline_response_200_4:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      buyer_id:
+        type: "integer"
+    example: "{message=Purchase Histroy Details, buyer_id=12345}"
+  account:
+    type: "object"
+    required:
+    - "buyer_id"
+    - "name"
+    - "password"
+    - "username"
+    properties:
+      username:
+        type: "string"
+      password:
+        type: "string"
+      buyer_id:
+        type: "integer"
+      name:
+        type: "string"
+    example:
+      username: "buyer123"
+      password: "mypassword"
+      buyer_id: 12345
+      name: "Joe"
+  inline_response_401:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+    example: "{message=Unauthorized}"
+  inline_response_400:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+    example: "{message=Bad request}"
