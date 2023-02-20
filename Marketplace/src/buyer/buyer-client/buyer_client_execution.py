@@ -152,7 +152,7 @@ def seller_rating(seller_id,buyer_id):
     except ApiException as e:
         print("Exception when calling BuyerActionsApi->seller_rating_get: %s\n" % e)
 
-if __name__ == '__main__':
+def execute():
     create_account(username="buyer_swami",password="buyer",buyer_id=1234,name="Swaminathan")
     login(username="buyer_swami",password="buyer")
     
@@ -173,3 +173,7 @@ if __name__ == '__main__':
     for i in range(1000):
         add_into_cart(item_id=1,buyer_id=1234,quantity=1)
         clear_cart(buyer_id=1234)
+
+
+if __name__ == '__main__':
+    execute()

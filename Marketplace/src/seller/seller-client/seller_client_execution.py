@@ -102,7 +102,7 @@ def seller_rating(seller_id):
     except ApiException as e:
         print("Exception when calling SellersApi->seller_rating_get: %s\n" % e)
 
-if __name__ == '__main__':
+def execute():
     create_account(username="seller_swami",password="seller",name="Swaminathan",seller_id=123)
     login(username="seller_swami",password="seller")
     add_item(item_id=100, item_name="batman", item_category=9, keywords="Toy,Kids,Hero", condition="new", sale_price=100, quantity=200, seller_id=123)
@@ -116,3 +116,7 @@ if __name__ == '__main__':
     display_items(seller_id=123)
     seller_rating(seller_id=123)
     logout(seller_id=123)
+
+
+if __name__ == '__main__':
+    execute()
