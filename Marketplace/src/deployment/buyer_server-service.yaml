@@ -9,13 +9,14 @@ metadata:
     io.kompose.service: buyer-server
   name: buyer-server
 spec:
+  type: NodePort
   ports:
     - name: "4444"
       port: 4444
       targetPort: 8080
-    - name: "8080"
-      port: 8080
-      targetPort: 8080
+    # - name: "8080"
+    #   port: 8080
+    #   targetPort: 8080
   selector:
     io.kompose.service: buyer-server
 status:
