@@ -16,7 +16,7 @@ cart_instance = buyer_client.CartApi()
 buyer_action_instance = buyer_client.BuyerActionsApi()
 
 src_dir = pathlib.Path(__file__).parent.parent.parent.resolve()
-logging.basicConfig(filename="{0}/logs/buyer_client_throughput.log".format(src_dir),
+logging.basicConfig(filename="{0}/logs/buyer_client_response.log".format(src_dir),
                     format='%(message)s',
                     )
 logger = logging.getLogger()

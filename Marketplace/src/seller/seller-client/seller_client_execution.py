@@ -13,7 +13,7 @@ item_instance = seller_client.ItemsApi()
 seller_instance = seller_client.SellersApi()
 
 src_dir = pathlib.Path(__file__).parent.parent.parent.resolve()
-logging.basicConfig(filename="{0}/logs/seller_client_throughput.log".format(src_dir),
+logging.basicConfig(filename="{0}/logs/seller_client_response.log".format(src_dir),
                     format='%(message)s',
                     )
 logger = logging.getLogger()
