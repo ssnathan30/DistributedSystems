@@ -92,3 +92,4 @@ ENV/
 # Datastore
 *.DS_Store
 *.db*
+*.log

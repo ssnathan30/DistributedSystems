@@ -1,3 +1,4 @@
+import os
 from spyne import Application, rpc, ServiceBase, Integer, Unicode
 from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
@@ -11,11 +12,13 @@ class FinancialService(ServiceBase):
         return result
 
 if __name__ == '__main__':
+    soap_host = os.getenv("soap_host","localhost")
+    soap_port = int(os.getenv("soap_port",6666))
     app = Application([FinancialService], 'spyne.financial.service.soap',
                       in_protocol=Soap11(validator='lxml'),
                       out_protocol=Soap11())
 
     wsgi_app = WsgiApplication(app)
-
-    server = make_server('0.0.0.0', 8888, wsgi_app)
+    print(f'Listening on hostname: {soap_host}, port {soap_port}')
+    server = make_server(soap_host, soap_port, wsgi_app)
     server.serve_forever()

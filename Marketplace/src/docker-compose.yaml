@@ -1,0 +1,62 @@
+version: '3.9'
+services:
+  customer_db:
+    hostname: customer_db
+    container_name: customer_db
+    image: gcr.io/distributedsystems-swsr1249/customer_db:latest
+    environment:
+      customer_host: "customer_db"
+      customer_port: 50080
+  product_db:
+    hostname: product_db
+    container_name: product_db
+    image: gcr.io/distributedsystems-swsr1249/product_db:latest
+    environment:
+      product_host: "product_db"
+      product_port: 50060
+  financial_db:
+    hostname: financial_db
+    container_name: financial_db
+    image: gcr.io/distributedsystems-swsr1249/financial_db:latest
+    environment:
+      soap_host: "financial_db"
+      soap_port: 6666
+  seller_server:
+    hostname: seller_server
+    container_name: seller_server
+    image: gcr.io/distributedsystems-swsr1249/seller_server:latest
+    environment:
+      soap_host: "financial_db"
+      soap_port: 6666
+      product_host: "product_db"
+      product_port: 50060
+      customer_host: "customer_db"
+      customer_port: 50080
+    ports:
+      - "5555:9090"
+    expose:
+      - 9090
+    depends_on:
+      - customer_db
+      - product_db
+      - financial_db
+  buyer_server:
+    hostname: buyer_server
+    container_name: buyer_server
+    image: gcr.io/distributedsystems-swsr1249/buyer_server:latest
+    environment:
+      soap_host: "financial_db"
+      soap_port: 6666
+      product_host: "product_db"
+      product_port: 50060
+      customer_host: "customer_db"
+      customer_port: 50080
+    ports:
+      - "4444:8080"
+    expose:
+      - 8080
+    depends_on:
+      - customer_db
+      - product_db
+      - financial_db
+      - seller_server

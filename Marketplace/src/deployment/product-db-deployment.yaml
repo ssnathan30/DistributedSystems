@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: product-db
+  name: product-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: product-db
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/src-default: "true"
+        io.kompose.service: product-db
+    spec:
+      containers:
+        - env:
+            - name: product_host
+              value: product-db
+            - name: product_port
+              value: "50060"
+          image: gcr.io/distributedsystems-swsr1249/product_db:latest
+          name: product-db
+          resources: {}
+      hostname: product-db
+      restartPolicy: Always
+status: {}

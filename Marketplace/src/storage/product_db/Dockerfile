@@ -14,6 +14,6 @@ COPY . /usr/src/app
 
 EXPOSE 8080
 
-ENTRYPOINT ["python3"]
+RUN ["python3", "-u", "/usr/src/app/init_db.py"]
 
-CMD ["-m", "swagger_server"]
+ENTRYPOINT ["python3", "-u", "/usr/src/app/product_db_server.py"]

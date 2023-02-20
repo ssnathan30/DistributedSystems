@@ -130,6 +130,7 @@ def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=1000))
     customer_pb2_grpc.add_CustomerDatabaseServerServicer_to_server(CustomerDatabaseServerServicer(), server)
     server.add_insecure_port(f'{customer_host}:{customer_port}')
+    print(f'Listening on hostname: {customer_host}, port {customer_port}')
     server.start()
     server.wait_for_termination()
 

@@ -1,5 +1,5 @@
 from __future__ import print_function
-import time
+from time import time
 import seller_client
 from seller_client.rest import ApiException
 from pprint import pprint

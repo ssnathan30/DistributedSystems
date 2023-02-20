@@ -14,6 +14,4 @@ COPY . /usr/src/app
 
 EXPOSE 8080
 
-ENTRYPOINT ["python3"]
-
-CMD ["-m", "swagger_server"]
+ENTRYPOINT ["python3", "-u", "/usr/src/app/soap_server.py"]

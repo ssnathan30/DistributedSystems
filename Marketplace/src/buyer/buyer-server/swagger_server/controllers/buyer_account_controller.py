@@ -35,7 +35,6 @@ def timer_func(func):
         return result
     return wrap_func
 
-@timer_func
 def account_post(account):  # noqa: E501
     """Create a new buyer account
 
@@ -82,7 +81,6 @@ def account_post(account):  # noqa: E501
             return InlineResponse400(message=str(traceback.format_exc()))
         return InlineResponse201(message=json.dumps(response),buyer_id=account.buyer_id)
 
-@timer_func
 def login_post(credentials):  # noqa: E501
     """Log in to an existing account
 
@@ -129,7 +127,6 @@ def login_post(credentials):  # noqa: E501
 
         return InlineResponse2005(message="Login Successful")   
 
-@timer_func
 def logout_buyer_id_get(buyer_id):  # noqa: E501
     """Log out of an existing account
 

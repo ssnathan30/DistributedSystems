@@ -54,7 +54,7 @@ def session_active(seller_id):
     
     return True, None
 
-@timer_func
+
 def seller_rating_get(seller_id):  # noqa: E501
     """Get seller rating
 

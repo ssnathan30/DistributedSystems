@@ -56,7 +56,7 @@ def session_active(buyer_id):
     
     return True, None
 
-@timer_func
+
 def cart_add_post(body):  # noqa: E501
     """Add item to shopping cart
 
@@ -90,7 +90,7 @@ def cart_add_post(body):  # noqa: E501
         else:
             return InlineResponse400(message="Unauthorized")
 
-@timer_func
+
 def cart_remove_delete(item_id, quantity, buyer_id):  # noqa: E501
     """Remove item from shopping cart
 
@@ -145,7 +145,7 @@ def cart_remove_delete(item_id, quantity, buyer_id):  # noqa: E501
     else:
         return InlineResponse400(message="Unauthorized")
 
-@timer_func
+
 def clear_cart_post(buyer_id):  # noqa: E501
     """Clear the shopping cart for a given buyer
 
@@ -174,7 +174,7 @@ def clear_cart_post(buyer_id):  # noqa: E501
     else:
            return InlineResponse400(message="Unauthorized")
 
-@timer_func
+
 def display_cart_get(buyer_id):  # noqa: E501
     """Get the contents of the shopping cart for a given buyer
 

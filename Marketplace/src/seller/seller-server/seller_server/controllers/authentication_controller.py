@@ -33,7 +33,7 @@ def timer_func(func):
         return result
     return wrap_func
 
-@timer_func
+
 def login_post(username, password):  # noqa: E501
     """Login
 
@@ -83,7 +83,7 @@ def login_post(username, password):  # noqa: E501
     
     return InlineResponse2001(message="Login Successful")
 
-@timer_func
+
 def logout_post(seller_id):  # noqa: E501
     """Logout
 

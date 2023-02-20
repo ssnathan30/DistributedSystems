@@ -30,7 +30,7 @@ def timer_func(func):
         return result
     return wrap_func
 
-@timer_func
+
 def accounts_post(username, password, seller_id, name=None):  # noqa: E501
     """Create an account
 

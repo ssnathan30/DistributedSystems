@@ -153,26 +153,23 @@ def seller_rating(seller_id,buyer_id):
         print("Exception when calling BuyerActionsApi->seller_rating_get: %s\n" % e)
 
 if __name__ == '__main__':
-    # create_account(username="buyer_swami",password="buyer",buyer_id=1234,name="Swaminathan")
-    # login(username="buyer_swami",password="buyer")
-    
-    # add_into_cart(item_id=100,buyer_id=1234,quantity=5)
-    # add_into_cart(item_id=101,buyer_id=1234,quantity=5)
-    # remove_from_cart(item_id=101,buyer_id=1234,quantity=3)
-    # display_cart(buyer_id=1234)
-    
-    # search_items(item_category=9,keywords="Toy,violet",buyer_id=1234)
-    # search_items(item_category=1,keywords="violet",buyer_id=1234)
-    
-    # purchase(name="swaminathan",card_number=1234567,expiration_date="01/01/1997",buyer_id=1234)
-    # purchase_history(buyer_id=1234)
-    
-    # seller_rating(seller_id=1,buyer_id=1234)
-    # seller_rating(seller_id=123,buyer_id=1234)
-    
-    # for i in range(1000):
-    #     add_into_cart(item_id=1,buyer_id=1234,quantity=1)
-    #     clear_cart(buyer_id=1234)
-    
+    create_account(username="buyer_swami",password="buyer",buyer_id=1234,name="Swaminathan")
     login(username="buyer_swami",password="buyer")
-    logout(buyer_id=1234)
+    
+    add_into_cart(item_id=100,buyer_id=1234,quantity=5)
+    add_into_cart(item_id=101,buyer_id=1234,quantity=5)
+    remove_from_cart(item_id=101,buyer_id=1234,quantity=3)
+    display_cart(buyer_id=1234)
+    
+    search_items(item_category=9,keywords="Toy,violet",buyer_id=1234)
+    search_items(item_category=1,keywords="violet",buyer_id=1234)
+    
+    purchase(name="swaminathan",card_number=1234567,expiration_date="01/01/1997",buyer_id=1234)
+    purchase_history(buyer_id=1234)
+    
+    seller_rating(seller_id=1,buyer_id=1234)
+    seller_rating(seller_id=123,buyer_id=1234)
+    
+    for i in range(1000):
+        add_into_cart(item_id=1,buyer_id=1234,quantity=1)
+        clear_cart(buyer_id=1234)

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: financial-db
+  name: financial-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: financial-db
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/src-default: "true"
+        io.kompose.service: financial-db
+    spec:
+      containers:
+        - env:
+            - name: soap_host
+              value: financial-db
+            - name: soap_port
+              value: "6666"
+          image: gcr.io/distributedsystems-swsr1249/financial_db:latest
+          name: financial-db
+          resources: {}
+      hostname: financial-db
+      restartPolicy: Always
+status: {}

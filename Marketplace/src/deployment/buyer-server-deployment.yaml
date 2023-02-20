@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: buyer-server
+  name: buyer-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: buyer-server
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/src-default: "true"
+        io.kompose.service: buyer-server
+    spec:
+      containers:
+        - env:
+            - name: customer_host
+              value: customer-db
+            - name: customer_port
+              value: "50080"
+            - name: product_host
+              value: product-db
+            - name: product_port
+              value: "50060"
+            - name: soap_host
+              value: financial-db
+            - name: soap_port
+              value: "6666"
+          image: gcr.io/distributedsystems-swsr1249/buyer_server:latest
+          name: buyer-server
+          ports:
+            - containerPort: 8080
+          resources: {}
+      hostname: buyer-server
+      restartPolicy: Always
+status: {}

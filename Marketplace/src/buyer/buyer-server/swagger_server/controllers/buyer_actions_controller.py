@@ -67,7 +67,6 @@ def session_active(buyer_id):
     
     return True, None
 
-@timer_func
 def purchase_history_get(buyer_id):  # noqa: E501
     """Get purchase history
 
@@ -96,7 +95,6 @@ def purchase_history_get(buyer_id):  # noqa: E501
     else:
            return InlineResponse400(message="Unauthorized")
 
-@timer_func
 def purchase_post(buyer_id, card_details):  # noqa: E501
     """Purchase items added in the cart
 
@@ -208,7 +206,7 @@ def purchase_post(buyer_id, card_details):  # noqa: E501
     else:
         return InlineResponse400(message="Unauthorized")
 
-@timer_func
+
 def search_items_get(item_category, keywords, buyer_id):  # noqa: E501
     """Search for items
 
@@ -261,7 +259,7 @@ def search_items_get(item_category, keywords, buyer_id):  # noqa: E501
     else:
         return InlineResponse400(message="Unauthorized")
 
-@timer_func
+
 def seller_feedback_post(seller_id, buyer_id, transaction_id, item_id, feedback_rating):  # noqa: E501
     """Provide seller Feedback
 
@@ -344,7 +342,7 @@ def seller_feedback_post(seller_id, buyer_id, transaction_id, item_id, feedback_
     else:
         return InlineResponse400(message="Unauthorized")
 
-@timer_func
+
 def seller_rating_get(seller_id, buyer_id):  # noqa: E501
     """Get seller rating
 

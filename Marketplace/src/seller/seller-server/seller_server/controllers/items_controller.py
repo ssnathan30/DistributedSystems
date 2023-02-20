@@ -60,7 +60,7 @@ def session_active(seller_id):
     
     return True, None
 
-@timer_func
+
 def display_get(seller_id):  # noqa: E501
     """Display items
 
@@ -93,7 +93,7 @@ def display_get(seller_id):  # noqa: E501
     else:
         return InlineResponse401(message="Unauthorized")
 
-@timer_func
+
 def items_item_id_delete(item_id,quantity,seller_id):  # noqa: E501
     """Remove an item from sale
 
@@ -149,7 +149,7 @@ def items_item_id_delete(item_id,quantity,seller_id):  # noqa: E501
     else:
         return InlineResponse401(message="Unauthorized")
 
-@timer_func
+
 def items_item_id_sale_price_put(item_id, new_sale_price, seller_id):  # noqa: E501
     """Change the sale price of an item
 
@@ -184,7 +184,7 @@ def items_item_id_sale_price_put(item_id, new_sale_price, seller_id):  # noqa: E
     else:
         return InlineResponse401(message="Unauthorized") 
 
-@timer_func
+
 def items_post(item_id, item_name, item_category, keywords, condition, sale_price, quantity, seller_id):  # noqa: E501
     """Put an item for sale
 

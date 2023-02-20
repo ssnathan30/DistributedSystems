@@ -8,6 +8,7 @@ src_dir = pathlib.Path(__file__).parent.parent.resolve()
 
 # Connect to the database
 conn = sqlite3.connect('{0}/db/customer.db'.format(parent_dir))
+conn.execute('pragma journal_mode=wal;')
 cursor = conn.cursor()
 
 # Create tables
