@@ -10,7 +10,7 @@ from seller_server import encoder
 
 def main():
     src_dir = pathlib.Path(__file__).parent.resolve()
-    logging.basicConfig(filename="{0}/logs/buyer_server_throughput.log".format(src_dir),
+    logging.basicConfig(filename="{0}/logs/seller_server_throughput.log".format(src_dir),
                         format='%(message)s',
                         )
     logger = logging.getLogger()
