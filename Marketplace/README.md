@@ -52,7 +52,7 @@ Components:
     ```
     - All the connection details are passed as env variables.
     - All the endpoint implementation can be found as part of the controllers
-    - Endoint details and the inputs can be found as part of the swagger UI. http://<hostname>:<port>/api/v1/ui
+    - Endoint details and the inputs can be found as part of the swagger UI. http://<hostname:port>/api/v1/ui
     - In order to calculate the server throughout, The server processing time is logged to "<seller/buyer>_server_throughput.log" inside the logs folder.
 #### Semantics for Keyword search
 - For this functionality, I am using the existing python package “fuzzywuzzy” which calculates the matching score given a word and a list of words.
