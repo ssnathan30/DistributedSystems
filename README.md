@@ -48,3 +48,7 @@ NTP_SERVER="localhost" NTP_PORT=1234 python3 ntp_client/ntp_client.py | tee ntp_
 ```
 SERVER="Local_NTP_Server" python3 ntp_client/plot.py
 ```
+
+## Where to view logs and graphs ?
+- Graphs : ntp_client/graphs
+- Output : ntp_client/logs
