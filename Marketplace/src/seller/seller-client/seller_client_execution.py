@@ -109,7 +109,7 @@ def execute():
     add_item(item_id=101, item_name="superman", item_category=9, keywords="Toy,Kids,Hero", condition="new", sale_price=100, quantity=202, seller_id=123)
     add_item(item_id=102, item_name="spiderman", item_category=9, keywords="Toy,Kids,Hero", condition="new", sale_price=100, quantity=200, seller_id=123)
     
-    for i in range(1000):
+    for i in range(100):
         update_price(item_id=101,seller_id=123,new_sale_price=99)
 
     remove_item(item_id=101,quantity=1,seller_id=123)

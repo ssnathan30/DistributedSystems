@@ -1,26 +1,5 @@
 version: '3.9'
 services:
-  customer_db:
-    build: storage/customer_db
-    hostname: customer_db
-    container_name: customer_db
-    environment:
-      customer_host: "customer_db"
-      customer_port: 50080
-  product_db:
-    build: storage/product_db
-    hostname: product_db
-    container_name: product_db
-    environment:
-      product_host: "product_db"
-      product_port: 50060
-  financial_db:
-    build: storage/financial_transactions
-    hostname: financial_db
-    container_name: financial_db
-    environment:
-      soap_host: "financial_db"
-      soap_port: 6666
   seller_server:
     build: seller/seller-server
     hostname: seller_server
@@ -28,17 +7,23 @@ services:
     environment:
       soap_host: "financial_db"
       soap_port: 6666
-      product_host: "product_db"
-      product_port: 50060
-      customer_host: "customer_db"
-      customer_port: 50080
+      product_host_port: "product_db_1:40080,product_db_2:40081,product_db_3:40082,product_db_4:40083,product_db_5:40084"
+      customer_host_port: "customer_db_1:50080,customer_db_2:50081,customer_db_3:50082,customer_db_4:50083,customer_db_5:50084"
     ports:
       - "5555:9090"
     expose:
       - 9090
     depends_on:
-      - customer_db
-      - product_db
+      - customer_db_1
+      - customer_db_2
+      - customer_db_3
+      - customer_db_4
+      - customer_db_5
+      - product_db_1
+      - product_db_2
+      - product_db_3
+      - product_db_4
+      - product_db_5
       - financial_db
   buyer_server:
     build: buyer/buyer-server
@@ -47,16 +32,165 @@ services:
     environment:
       soap_host: "financial_db"
       soap_port: 6666
-      product_host: "product_db"
-      product_port: 50060
-      customer_host: "customer_db"
-      customer_port: 50080
+      product_host_port: "product_db_1:40080,product_db_2:40081,product_db_3:40082,product_db_4:40083,product_db_5:40084"
+      customer_host_port: "customer_db_1:50080,customer_db_2:50081,customer_db_3:50082,customer_db_4:50083,customer_db_5:50084"
     ports:
       - "4444:8080"
     expose:
       - 8080
     depends_on:
-      - customer_db
-      - product_db
+      - customer_db_1
+      - customer_db_2
+      - customer_db_3
+      - customer_db_4
+      - customer_db_5
+      - product_db_1
+      - product_db_2
+      - product_db_3
+      - product_db_4
+      - product_db_5
       - financial_db
       - seller_server
+  financial_db:
+      build: storage/financial_transactions
+      hostname: financial_db
+      container_name: financial_db
+      environment:
+        soap_host: "financial_db"
+        soap_port: 6666
+  product_db_1:
+    build: storage/product_db
+    hostname: product_db_1
+    container_name: product_db_1
+    ports:
+      - 40080:40080
+    expose:
+      - 7005
+    environment:
+      product_host: "product_db_1"
+      product_port: 40080
+      replica_port: 7005
+      peers: "2:product_db_2:7006,3:product_db_3:7007,4:product_db_4:7008,5:product_db_5:7009"
+  product_db_2:
+    build: storage/product_db
+    hostname: product_db_2
+    container_name: product_db_2
+    ports:
+      - 40081:40081
+      - 7006:7006
+    expose:
+      - 7006
+    environment:
+      product_host: "product_db_2"
+      product_port: 40081
+      replica_port: 7006
+      peers: "1:product_db_1:7005,3:product_db_3:7007,4:product_db_4:7008,5:product_db_5:7009"
+  product_db_3:
+    build: storage/product_db
+    hostname: product_db_3
+    container_name: product_db_3
+    ports:
+      - 40082:40082
+    expose:
+      - 7007
+    environment:
+      product_host: "product_db_3"
+      product_port: 40082
+      replica_port: 7007
+      peers: "1:product_db_1:7005,2:product_db_2:7006,4:product_db_4:7008,5:product_db_5:7009"
+  product_db_4:
+    build: storage/product_db
+    hostname: product_db_4
+    container_name: product_db_4
+    ports:
+      - 40083:40083
+    expose:
+      - 7008
+    environment:
+      product_host: "product_db_4"
+      product_port: 40083
+      replica_port: 7008
+      peers: "1:product_db_1:7005,2:product_db_2:7006,3:product_db_3:7007,5:product_db_5:7009"
+  product_db_5:
+    build: storage/product_db
+    hostname: product_db_5
+    container_name: product_db_5
+    ports:
+      - 40084:40084
+    expose:
+      - 7009
+    environment:
+      product_host: "product_db_5"
+      product_port: 40084
+      replica_port: 7009
+      peers: "1:product_db_1:7005,2:product_db_2:7006,3:product_db_3:7007,4:product_db_4:7008"
+  customer_db_1:
+    build: storage/customer_db
+    hostname: customer_db_1
+    container_name: customer_db_1
+    ports:
+      - 50080:50080
+    expose:
+      - 60005/udp
+    environment:
+      customer_host: "customer_db_1"
+      customer_port: 50080
+      replica_id: 1 
+      replica_port: 60005
+      peers: "2:customer_db_2:60006,3:customer_db_3:60007,4:customer_db_4:60008,5:customer_db_5:60009"
+  customer_db_2:
+    build: storage/customer_db
+    hostname: customer_db_2
+    container_name: customer_db_2
+    ports:
+      - 50081:50081
+    expose:
+      - 60006/udp
+    environment:
+      customer_host: "customer_db_2"
+      customer_port: 50081
+      replica_id: 2
+      replica_port: 60006
+      peers: "1:customer_db_1:60005,3:customer_db_3:60007,4:customer_db_4:60008,5:customer_db_5:60009"
+  customer_db_3:
+    build: storage/customer_db
+    hostname: customer_db_3
+    container_name: customer_db_3
+    ports:
+      - 50082:50082
+    expose:
+      - 60007/udp
+    environment:
+      customer_host: "customer_db_3"
+      customer_port: 50082
+      replica_id: 3
+      replica_port: 60007
+      peers: "1:customer_db_1:60005,2:customer_db_2:60006,4:customer_db_4:60008,5:customer_db_5:60009"
+  customer_db_4:
+    build: storage/customer_db
+    hostname: customer_db_4
+    container_name: customer_db_4
+    ports:
+      - 50083:50083
+    expose:
+      - 60008/udp
+    environment:
+      customer_host: "customer_db_4"
+      customer_port: 50083
+      replica_id: 4
+      replica_port: 60008
+      peers: "1:customer_db_1:60005,2:customer_db_2:60006,3:customer_db_3:60007,5:customer_db_5:60009"
+  customer_db_5:
+    build: storage/customer_db
+    hostname: customer_db_5
+    container_name: customer_db_5
+    ports:
+      - 50084:50084
+    expose:
+      - 60009/udp
+    environment:
+      customer_host: "customer_db_5"
+      customer_port: 50084
+      replica_id: 5 
+      replica_port: 60009
+      peers: "1:customer_db_1:60005,2:customer_db_2:60006,3:customer_db_3:60007,4:customer_db_4:60008"

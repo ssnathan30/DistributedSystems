@@ -170,7 +170,7 @@ def execute():
     seller_rating(seller_id=1,buyer_id=1234)
     seller_rating(seller_id=123,buyer_id=1234)
     
-    for i in range(500):
+    for i in range(100):
         add_into_cart(item_id=1,buyer_id=1234,quantity=1)
         clear_cart(buyer_id=1234)
 

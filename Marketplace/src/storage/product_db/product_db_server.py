@@ -6,6 +6,7 @@ import sqlite3
 import product_pb2
 import product_pb2_grpc
 import sys
+from db_operations import *
 
 # path to parent and src directory
 parent_dir = pathlib.Path(__file__).parent.resolve()
@@ -14,114 +15,34 @@ src_dir = pathlib.Path(__file__).parent.parent.resolve()
 sys.path.append(parent_dir)
 
 class ProductDatabaseServerServicer(product_pb2_grpc.ProductDatabaseServerServicer):
-    def Get(self, request, context):
-        # Connect to the database
-        conn = sqlite3.connect(f'{parent_dir}/db/product.db')
-        cursor = conn.cursor()
+
+    def __init__(self) -> None:
+        super().__init__()
+        ## Start Raft
+        e_udp_port = int(os.getenv("replica_port"))
+        e_host = os.getenv("product_host","localhost")
+
+        e_peers = list(os.getenv("peers").split(","))
+        e_peers = [tuple(peer.split(":")) for peer in e_peers]
+        peer_list = [f"{peer[1]}:{int(peer[2])}" for peer in e_peers]
         try:
-            cursor.execute(request.query)
-            # Fetch the results and build the response
-            rows = cursor.fetchall()
-            
-            response = product_pb2.GetResponse()
-            for row in rows:
-                values = []
-                for i in range(len(row)):
-                    column_value = product_pb2.ColValue(column_name=cursor.description[i][0], column_value=str(row[i]))
-                    values.append(column_value)
-                response.rows.append(product_pb2.Rows(values=values))
-            error = product_pb2.Issue(error_code=1,error_message="Success")
-            response.error.CopyFrom(error)
-            return response
+            self.db_ops = db_operations(self_node=f"{e_host}:{e_udp_port}",peer_nodes=peer_list)
         except Exception as e:
-            # Return an error response if there was an issue with the get
-            error = str(e)
-            response = product_pb2.InsertResponse()
-            error = product_pb2.Issue(error_code=-1,error_message=error)
-            response.error.CopyFrom(error)
-            return response
-        finally:
-            # Close the connection to the database
-            cursor.close()
-            conn.close()
+            print(e)
+
+    def Get(self, request, context):
+        print(self.db_ops.getStatus())
+        print("Request received")        
+        return self.db_ops.Get(request)
 
     def Insert(self, request, context):
-        # Connect to the database
-        conn = sqlite3.connect(f'{parent_dir}/db/product.db')
-        cursor = conn.cursor()
-        try:
-            # Execute the insert statement
-            cursor.execute(request.query)
-            insert_id = cursor.lastrowid
-            conn.commit()
-        except Exception as e:
-            # Return an error response if there was an issue with the insert
-            error = str(e)
-            response = product_pb2.InsertResponse()
-            error = product_pb2.Issue(error_code=-1,error_message=error)
-            response.error.CopyFrom(error)
-            return response
-        finally:
-            cursor.close()
-            conn.close()
-        
-        # Return the insert id
-        response = product_pb2.InsertResponse(insert_id=insert_id)
-        error = product_pb2.Issue(error_code=1,error_message="Success")
-        response.error.CopyFrom(error)
-        return response
+        return self.db_ops.Insert(request)    
     
     def Update(self, request, context):
-        # Connect to the database
-        conn = sqlite3.connect(f'{parent_dir}/db/product.db')
-        cursor = conn.cursor()
-        try:
-            # Execute the update statement
-            cursor.execute(request.query)
-            # Return the number of affected rows
-            affected_rows = cursor.rowcount
-            conn.commit()
-        except Exception as e:
-            # Return an error response if there was an issue with the update
-            error = str(e)
-            response = product_pb2.UpdateResponse()
-            error = product_pb2.Issue(error_code=-1,error_message=error)
-            response.error.CopyFrom(error)
-            return response
-        finally:
-            cursor.close()
-            conn.close()
-
-        response = product_pb2.UpdateResponse(affected_rows=affected_rows)
-        error = product_pb2.Issue(error_code=1,error_message="Success")
-        response.error.CopyFrom(error)
-        return response
+        return self.db_ops.Update(request)
 
     def Delete(self, request, context):
-        # Connect to the database
-        conn = sqlite3.connect(f'{parent_dir}/db/product.db')
-        cursor = conn.cursor()
-        # Execute the delete statement
-        try:
-            cursor.execute(request.query)
-            # Return the number of affected rows
-            affected_rows = cursor.rowcount
-            conn.commit()
-        except Exception as e:
-            # Return an error response if there was an issue with the update
-            error = str(e)
-            response = product_pb2.DeleteResponse()
-            error = product_pb2.Issue(error_code=-1,error_message=error)
-            response.error.CopyFrom(error)
-            return response
-        finally:
-            cursor.close()
-            conn.close()
-
-        response = product_pb2.DeleteResponse(affected_rows=affected_rows)
-        error = product_pb2.Issue(error_code=1,error_message="Success")
-        response.error.CopyFrom(error)
-        return response
+        return self.db_ops.Delete(request)
 
 def serve():
     product_host = os.getenv("product_host","localhost")

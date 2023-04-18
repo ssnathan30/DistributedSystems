@@ -2,6 +2,7 @@ from enum import Enum
 import logging
 import json
 import os
+import random
 import time
 import traceback
 import grpc
@@ -21,15 +22,18 @@ class QueryType(Enum):
     UPDATE = 3
     DELETE = 4
 
-customer_db_host = os.getenv("customer_host","localhost")
-customer_db_port = os.getenv("customer_port",50080)
-product_db_host = os.getenv("product_host","localhost")
-product_db_port = os.getenv("product_port",50060)
+#customer_db_host = os.getenv("customer_host","localhost")
+#customer_db_port = os.getenv("customer_port",50080)
+#product_db_host = os.getenv("product_host","localhost")
+#product_db_port = os.getenv("product_port",50060)
+
+customer_db_list = list(os.getenv("customer_host_port").split(","))
+product_db_list = list(os.getenv("product_host_port").split(","))
 
 def execute_query(_query,database,query_type):
     if database is Database.CUSTOMER:
         # Connect to the GRPC server
-        channel = grpc.insecure_channel(f'{customer_db_host}:{customer_db_port}')
+        channel = grpc.insecure_channel(random.choice(customer_db_list))
         stub = CustomerDatabaseServerStub(channel)
 
         if query_type is QueryType.GET:
@@ -62,7 +66,7 @@ def execute_query(_query,database,query_type):
             return json.loads(MessageToJson(get_delete_response))
     else:
         # Connect to the GRPC server
-        channel = grpc.insecure_channel(f'{product_db_host}:{product_db_port}')
+        channel = grpc.insecure_channel(random.choice(product_db_list))
         stub = ProductDatabaseServerStub(channel)
 
         if query_type is QueryType.GET:

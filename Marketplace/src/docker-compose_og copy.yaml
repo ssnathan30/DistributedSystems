@@ -1,0 +1,62 @@
+version: '3.9'
+services:
+  customer_db:
+    build: storage/customer_db
+    hostname: customer_db
+    container_name: customer_db
+    environment:
+      customer_host: "customer_db"
+      customer_port: 50080
+  product_db:
+    build: storage/product_db
+    hostname: product_db
+    container_name: product_db
+    environment:
+      product_host: "product_db"
+      product_port: 50060
+  financial_db:
+    build: storage/financial_transactions
+    hostname: financial_db
+    container_name: financial_db
+    environment:
+      soap_host: "financial_db"
+      soap_port: 6666
+  seller_server:
+    build: seller/seller-server
+    hostname: seller_server
+    container_name: seller_server
+    environment:
+      soap_host: "financial_db"
+      soap_port: 6666
+      product_host: "product_db"
+      product_port: 50060
+      customer_host: "customer_db"
+      customer_port: 50080
+    ports:
+      - "5555:9090"
+    expose:
+      - 9090
+    depends_on:
+      - customer_db
+      - product_db
+      - financial_db
+  buyer_server:
+    build: buyer/buyer-server
+    hostname: buyer_server
+    container_name: buyer_server
+    environment:
+      soap_host: "financial_db"
+      soap_port: 6666
+      product_host: "product_db"
+      product_port: 50060
+      customer_host: "customer_db"
+      customer_port: 50080
+    ports:
+      - "4444:8080"
+    expose:
+      - 8080
+    depends_on:
+      - customer_db
+      - product_db
+      - financial_db
+      - seller_server

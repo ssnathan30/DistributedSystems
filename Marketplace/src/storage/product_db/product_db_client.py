@@ -3,7 +3,7 @@ import product_pb2_grpc
 import grpc
 
 # Connect to the GRPC server
-channel = grpc.insecure_channel('localhost:50060')
+channel = grpc.insecure_channel('localhost:40080')
 stub = product_pb2_grpc.ProductDatabaseServerStub(channel)
 
 # Create a request object
