@@ -1,4 +1,4 @@
-## Programming Assignment Two
+## Programming Assignment Four
 
 ### Overview
 An online marketplace is an e-commerce site that brings sellers and buyers together in one place. It allows sellers to 
@@ -14,11 +14,15 @@ Components:
     - Seller-Server-Interface
 - Storage
     - Customer-Database-Server
+        - Atomic Broadcast Protocol
     - Product-Database-Server
+        - Raft
     - Financial-Database-Server
 
 #### Storage
 - Customer and Product Server process requests through gRPC
+    - The replication is handled by custom broadcast protocol for the customer database.
+    - The replication is handled Psync raft implementation for the product database.
 - Financial Server process requests through SOAP
 
 ##### Customer and Product Server
@@ -65,6 +69,13 @@ Components:
 
 #### Current state
 The source code is divided according to the components mentioned above.<br>
+
+- Replication Factor
+    - Seller server : 4
+    - Buyer server : 4
+    - Customer database : 5
+    - Product database  : 5
+    - Financial database : 1
 
 - Functionalities
     - Buyer component supports the following functionalities
