@@ -1,0 +1,228 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://172.28.0.13:9090
+[33mPress CTRL+C to quit[0m
+'wsgi_app',10.09575
+172.28.0.1 - - [18/Apr/2023 18:10:04] "POST /api/v1/accounts HTTP/1.1" 200 -
+'wsgi_app',10.09079
+172.28.0.1 - - [18/Apr/2023 18:10:14] "POST /api/v1/login HTTP/1.1" 200 -
+'wsgi_app',5.29125
+172.28.0.1 - - [18/Apr/2023 18:10:19] "POST /api/v1/items HTTP/1.1" 200 -
+'wsgi_app',5.15890
+172.28.0.1 - - [18/Apr/2023 18:10:24] "POST /api/v1/items HTTP/1.1" 200 -
+'wsgi_app',5.27793
+172.28.0.1 - - [18/Apr/2023 18:10:30] "POST /api/v1/items HTTP/1.1" 200 -
+'wsgi_app',5.26406
+172.28.0.1 - - [18/Apr/2023 18:10:35] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.23643
+172.28.0.1 - - [18/Apr/2023 18:10:40] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25243
+172.28.0.1 - - [18/Apr/2023 18:10:46] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24762
+172.28.0.1 - - [18/Apr/2023 18:10:51] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24898
+172.28.0.1 - - [18/Apr/2023 18:10:56] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.15040
+172.28.0.1 - - [18/Apr/2023 18:11:01] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.15193
+172.28.0.1 - - [18/Apr/2023 18:11:06] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25329
+172.28.0.1 - - [18/Apr/2023 18:11:12] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.27466
+172.28.0.1 - - [18/Apr/2023 18:11:17] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24686
+172.28.0.1 - - [18/Apr/2023 18:11:22] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.17083
+172.28.0.1 - - [18/Apr/2023 18:11:27] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24791
+172.28.0.1 - - [18/Apr/2023 18:11:33] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.26220
+172.28.0.1 - - [18/Apr/2023 18:11:38] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.23736
+172.28.0.1 - - [18/Apr/2023 18:11:43] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25184
+172.28.0.1 - - [18/Apr/2023 18:11:48] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25080
+172.28.0.1 - - [18/Apr/2023 18:11:54] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25596
+172.28.0.1 - - [18/Apr/2023 18:11:59] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24936
+172.28.0.1 - - [18/Apr/2023 18:12:04] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.26002
+172.28.0.1 - - [18/Apr/2023 18:12:09] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25083
+172.28.0.1 - - [18/Apr/2023 18:12:15] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.14988
+172.28.0.1 - - [18/Apr/2023 18:12:20] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24980
+172.28.0.1 - - [18/Apr/2023 18:12:25] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24922
+172.28.0.1 - - [18/Apr/2023 18:12:30] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.26896
+172.28.0.1 - - [18/Apr/2023 18:12:36] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25272
+172.28.0.1 - - [18/Apr/2023 18:12:41] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.15919
+172.28.0.1 - - [18/Apr/2023 18:12:46] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25130
+172.28.0.1 - - [18/Apr/2023 18:12:51] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.29016
+172.28.0.1 - - [18/Apr/2023 18:12:57] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25791
+172.28.0.1 - - [18/Apr/2023 18:13:02] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25857
+172.28.0.1 - - [18/Apr/2023 18:13:07] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24985
+172.28.0.1 - - [18/Apr/2023 18:13:12] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.26798
+172.28.0.1 - - [18/Apr/2023 18:13:18] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.25278
+172.28.0.1 - - [18/Apr/2023 18:13:23] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.26701
+172.28.0.1 - - [18/Apr/2023 18:13:28] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.24595
+172.28.0.1 - - [18/Apr/2023 18:13:33] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.16246
+172.28.0.1 - - [18/Apr/2023 18:13:39] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',5.26604
+172.28.0.1 - - [18/Apr/2023 18:13:44] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',10.20594
+172.28.0.1 - - [18/Apr/2023 18:13:54] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.32277
+172.28.0.1 - - [18/Apr/2023 18:14:44] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.32355
+172.28.0.1 - - [18/Apr/2023 18:15:20] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.31140
+172.28.0.1 - - [18/Apr/2023 18:16:00] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.34383
+172.28.0.1 - - [18/Apr/2023 18:16:35] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',30.15401
+172.28.0.1 - - [18/Apr/2023 18:17:06] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.16729
+172.28.0.1 - - [18/Apr/2023 18:17:41] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.28544
+172.28.0.1 - - [18/Apr/2023 18:18:31] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.13421
+172.28.0.1 - - [18/Apr/2023 18:19:06] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.27805
+172.28.0.1 - - [18/Apr/2023 18:19:46] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',25.22655
+172.28.0.1 - - [18/Apr/2023 18:20:12] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.23434
+172.28.0.1 - - [18/Apr/2023 18:20:52] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',55.31652
+172.28.0.1 - - [18/Apr/2023 18:21:47] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.23362
+172.28.0.1 - - [18/Apr/2023 18:22:23] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.34018
+172.28.0.1 - - [18/Apr/2023 18:23:08] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.32619
+172.28.0.1 - - [18/Apr/2023 18:23:58] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',25.22798
+172.28.0.1 - - [18/Apr/2023 18:24:23] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.25049
+172.28.0.1 - - [18/Apr/2023 18:25:14] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.28490
+172.28.0.1 - - [18/Apr/2023 18:25:54] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.33057
+172.28.0.1 - - [18/Apr/2023 18:26:34] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',30.16941
+172.28.0.1 - - [18/Apr/2023 18:27:04] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.27994
+172.28.0.1 - - [18/Apr/2023 18:27:50] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',30.22212
+172.28.0.1 - - [18/Apr/2023 18:28:20] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.24428
+172.28.0.1 - - [18/Apr/2023 18:29:10] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.17088
+172.28.0.1 - - [18/Apr/2023 18:29:55] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.35734
+172.28.0.1 - - [18/Apr/2023 18:30:41] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.24153
+172.28.0.1 - - [18/Apr/2023 18:31:16] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.31481
+172.28.0.1 - - [18/Apr/2023 18:31:56] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.34146
+172.28.0.1 - - [18/Apr/2023 18:32:42] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',30.28459
+172.28.0.1 - - [18/Apr/2023 18:33:12] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.24320
+172.28.0.1 - - [18/Apr/2023 18:33:57] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',20.31099
+172.28.0.1 - - [18/Apr/2023 18:34:18] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',55.31443
+172.28.0.1 - - [18/Apr/2023 18:35:13] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.27149
+172.28.0.1 - - [18/Apr/2023 18:35:53] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.26831
+172.28.0.1 - - [18/Apr/2023 18:36:38] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.32822
+172.28.0.1 - - [18/Apr/2023 18:37:24] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.32641
+172.28.0.1 - - [18/Apr/2023 18:38:09] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',48.49004
+172.28.0.1 - - [18/Apr/2023 18:38:58] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.31379
+172.28.0.1 - - [18/Apr/2023 18:39:43] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',297.06975
+172.28.0.1 - - [18/Apr/2023 18:44:40] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.27413
+172.28.0.1 - - [18/Apr/2023 18:45:25] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.27449
+172.28.0.1 - - [18/Apr/2023 18:46:11] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.21910
+172.28.0.1 - - [18/Apr/2023 18:46:51] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.33173
+172.28.0.1 - - [18/Apr/2023 18:47:36] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.16844
+172.28.0.1 - - [18/Apr/2023 18:48:16] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.25543
+172.28.0.1 - - [18/Apr/2023 18:48:52] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',55.34127
+172.28.0.1 - - [18/Apr/2023 18:49:47] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.34308
+172.28.0.1 - - [18/Apr/2023 18:50:32] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.19436
+172.28.0.1 - - [18/Apr/2023 18:51:12] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.30459
+172.28.0.1 - - [18/Apr/2023 18:52:03] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.40013
+172.28.0.1 - - [18/Apr/2023 18:52:48] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',40.26055
+172.28.0.1 - - [18/Apr/2023 18:53:28] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.25304
+172.28.0.1 - - [18/Apr/2023 18:54:14] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.27377
+172.28.0.1 - - [18/Apr/2023 18:54:59] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.16364
+172.28.0.1 - - [18/Apr/2023 18:55:44] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.34362
+172.28.0.1 - - [18/Apr/2023 18:56:20] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',55.29735
+172.28.0.1 - - [18/Apr/2023 18:57:15] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.29289
+172.28.0.1 - - [18/Apr/2023 18:57:50] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.33327
+172.28.0.1 - - [18/Apr/2023 18:58:40] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.24736
+172.28.0.1 - - [18/Apr/2023 18:59:26] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',50.33943
+172.28.0.1 - - [18/Apr/2023 19:00:16] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',45.35802
+172.28.0.1 - - [18/Apr/2023 19:01:01] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',35.24982
+172.28.0.1 - - [18/Apr/2023 19:01:37] "PUT /api/v1/items/101/sale_price HTTP/1.1" 200 -
+'wsgi_app',55.38788
+172.28.0.1 - - [18/Apr/2023 19:02:32] "DELETE /api/v1/items/101/delete?quantity=1&seller_id=123 HTTP/1.1" 200 -
+'wsgi_app',45.31737
+172.28.0.1 - - [18/Apr/2023 19:03:17] "GET /api/v1/display?seller_id=123 HTTP/1.1" 200 -
+'wsgi_app',95.19061
+172.28.0.1 - - [18/Apr/2023 19:04:53] "GET /api/v1/seller/rating?seller_id=123 HTTP/1.1" 200 -
+'wsgi_app',70.13007
+172.28.0.1 - - [18/Apr/2023 19:06:03] "POST /api/v1/logout HTTP/1.1" 200 -
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://172.28.0.3:9090
+[33mPress CTRL+C to quit[0m

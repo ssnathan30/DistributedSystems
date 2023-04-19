@@ -1,0 +1,434 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.28.0.14:8080
+[33mPress CTRL+C to quit[0m
+'wsgi_app',15.06291
+172.28.0.1 - - [18/Apr/2023 18:13:51] "POST /api/v1/account HTTP/1.1" 200 -
+'wsgi_app',75.12848
+172.28.0.1 - - [18/Apr/2023 18:15:06] "POST /api/v1/login HTTP/1.1" 200 -
+'wsgi_app',25.30463
+172.28.0.1 - - [18/Apr/2023 18:15:32] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',50.27287
+172.28.0.1 - - [18/Apr/2023 18:16:22] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.54557
+172.28.0.1 - - [18/Apr/2023 18:16:58] "DELETE /api/v1/cart/remove?item_id=101&quantity=3&buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.33713
+172.28.0.1 - - [18/Apr/2023 18:17:28] "GET /api/v1/display-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',40.29068
+172.28.0.1 - - [18/Apr/2023 18:18:08] "GET /api/v1/search-items?item_category=9&keywords=Toy,violet&buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',40.30235
+172.28.0.1 - - [18/Apr/2023 18:18:48] "GET /api/v1/search-items?item_category=1&keywords=violet&buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',36.73905
+172.28.0.1 - - [18/Apr/2023 18:19:25] "POST /api/v1/purchase?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.29429
+172.28.0.1 - - [18/Apr/2023 18:19:56] "GET /api/v1/purchase_history?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',85.20991
+172.28.0.1 - - [18/Apr/2023 18:21:21] "GET /api/v1/seller_rating?seller_id=1&buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',80.15144
+172.28.0.1 - - [18/Apr/2023 18:22:41] "GET /api/v1/seller_rating?seller_id=123&buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',50.28540
+172.28.0.1 - - [18/Apr/2023 18:23:31] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',40.30632
+172.28.0.1 - - [18/Apr/2023 18:24:11] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.34302
+172.28.0.1 - - [18/Apr/2023 18:24:47] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.28707
+172.28.0.1 - - [18/Apr/2023 18:25:32] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.27396
+172.28.0.1 - - [18/Apr/2023 18:26:17] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.27808
+172.28.0.1 - - [18/Apr/2023 18:26:48] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.15916
+172.28.0.1 - - [18/Apr/2023 18:27:33] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.21564
+172.28.0.1 - - [18/Apr/2023 18:28:03] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.17187
+172.28.0.1 - - [18/Apr/2023 18:28:48] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',50.34925
+172.28.0.1 - - [18/Apr/2023 18:29:39] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',40.32808
+172.28.0.1 - - [18/Apr/2023 18:30:19] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.24839
+172.28.0.1 - - [18/Apr/2023 18:31:04] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.29492
+172.28.0.1 - - [18/Apr/2023 18:31:50] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.38683
+172.28.0.1 - - [18/Apr/2023 18:32:20] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.24534
+172.28.0.1 - - [18/Apr/2023 18:32:50] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.16740
+172.28.0.1 - - [18/Apr/2023 18:33:20] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',55.22702
+172.28.0.1 - - [18/Apr/2023 18:34:16] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.27259
+172.28.0.1 - - [18/Apr/2023 18:34:46] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.28367
+172.28.0.1 - - [18/Apr/2023 18:35:31] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.33180
+172.28.0.1 - - [18/Apr/2023 18:36:16] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.26095
+172.28.0.1 - - [18/Apr/2023 18:37:02] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',40.30698
+172.28.0.1 - - [18/Apr/2023 18:37:42] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',48.06573
+172.28.0.1 - - [18/Apr/2023 18:38:30] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',50.30418
+172.28.0.1 - - [18/Apr/2023 18:39:20] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',297.10791
+172.28.0.1 - - [18/Apr/2023 18:44:18] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.25019
+172.28.0.1 - - [18/Apr/2023 18:44:53] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',50.26461
+172.28.0.1 - - [18/Apr/2023 18:45:43] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.35535
+172.28.0.1 - - [18/Apr/2023 18:46:28] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.17164
+172.28.0.1 - - [18/Apr/2023 18:47:14] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.30036
+172.28.0.1 - - [18/Apr/2023 18:47:59] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.30230
+172.28.0.1 - - [18/Apr/2023 18:48:44] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',40.34212
+172.28.0.1 - - [18/Apr/2023 18:49:25] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.31750
+172.28.0.1 - - [18/Apr/2023 18:50:10] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',40.21130
+172.28.0.1 - - [18/Apr/2023 18:50:50] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',55.37196
+172.28.0.1 - - [18/Apr/2023 18:51:45] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.16165
+172.28.0.1 - - [18/Apr/2023 18:52:31] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.32377
+172.28.0.1 - - [18/Apr/2023 18:53:06] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.29058
+172.28.0.1 - - [18/Apr/2023 18:53:51] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',50.31358
+172.28.0.1 - - [18/Apr/2023 18:54:42] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.33678
+172.28.0.1 - - [18/Apr/2023 18:55:17] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',50.16162
+172.28.0.1 - - [18/Apr/2023 18:56:07] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.37068
+172.28.0.1 - - [18/Apr/2023 18:56:52] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.33404
+172.28.0.1 - - [18/Apr/2023 18:57:38] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.25197
+172.28.0.1 - - [18/Apr/2023 18:58:08] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',55.33251
+172.28.0.1 - - [18/Apr/2023 18:59:03] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.32317
+172.28.0.1 - - [18/Apr/2023 18:59:49] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',50.34429
+172.28.0.1 - - [18/Apr/2023 19:00:39] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',40.29443
+172.28.0.1 - - [18/Apr/2023 19:01:19] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',50.38107
+172.28.0.1 - - [18/Apr/2023 19:02:10] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.20872
+172.28.0.1 - - [18/Apr/2023 19:02:55] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.25180
+172.28.0.1 - - [18/Apr/2023 19:03:40] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',45.17382
+172.28.0.1 - - [18/Apr/2023 19:04:25] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.32589
+172.28.0.1 - - [18/Apr/2023 19:05:11] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.16347
+172.28.0.1 - - [18/Apr/2023 19:05:46] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',45.32577
+172.28.0.1 - - [18/Apr/2023 19:06:31] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.26667
+172.28.0.1 - - [18/Apr/2023 19:06:47] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.32030
+172.28.0.1 - - [18/Apr/2023 19:07:17] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.38079
+172.28.0.1 - - [18/Apr/2023 19:07:42] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27530
+172.28.0.1 - - [18/Apr/2023 19:08:08] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.27416
+172.28.0.1 - - [18/Apr/2023 19:08:23] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.34492
+172.28.0.1 - - [18/Apr/2023 19:08:58] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.29174
+172.28.0.1 - - [18/Apr/2023 19:09:13] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.15426
+172.28.0.1 - - [18/Apr/2023 19:09:39] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.22314
+172.28.0.1 - - [18/Apr/2023 19:10:04] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.32840
+172.28.0.1 - - [18/Apr/2023 19:10:29] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.33661
+172.28.0.1 - - [18/Apr/2023 19:10:55] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.29094
+172.28.0.1 - - [18/Apr/2023 19:11:20] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.30247
+172.28.0.1 - - [18/Apr/2023 19:11:45] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.25205
+172.28.0.1 - - [18/Apr/2023 19:12:10] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.25278
+172.28.0.1 - - [18/Apr/2023 19:12:36] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.29279
+172.28.0.1 - - [18/Apr/2023 19:13:01] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.28280
+172.28.0.1 - - [18/Apr/2023 19:13:26] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.17627
+172.28.0.1 - - [18/Apr/2023 19:13:51] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.31861
+172.28.0.1 - - [18/Apr/2023 19:14:17] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.29505
+172.28.0.1 - - [18/Apr/2023 19:14:42] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.26864
+172.28.0.1 - - [18/Apr/2023 19:15:07] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.16617
+172.28.0.1 - - [18/Apr/2023 19:15:32] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.19669
+172.28.0.1 - - [18/Apr/2023 19:15:58] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.18734
+172.28.0.1 - - [18/Apr/2023 19:16:13] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.35985
+172.28.0.1 - - [18/Apr/2023 19:16:43] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.30608
+172.28.0.1 - - [18/Apr/2023 19:16:59] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.21133
+172.28.0.1 - - [18/Apr/2023 19:17:34] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.33474
+172.28.0.1 - - [18/Apr/2023 19:17:49] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',38.60922
+172.28.0.1 - - [18/Apr/2023 19:18:28] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',107.57770
+172.28.0.1 - - [18/Apr/2023 19:20:15] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.19138
+172.28.0.1 - - [18/Apr/2023 19:20:41] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',302.65735
+172.28.0.1 - - [18/Apr/2023 19:25:43] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.26350
+172.28.0.1 - - [18/Apr/2023 19:26:08] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.23822
+172.28.0.1 - - [18/Apr/2023 19:26:34] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.21095
+172.28.0.1 - - [18/Apr/2023 19:26:49] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.17341
+172.28.0.1 - - [18/Apr/2023 19:27:19] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.29255
+172.28.0.1 - - [18/Apr/2023 19:27:44] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.25030
+172.28.0.1 - - [18/Apr/2023 19:28:10] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.23990
+172.28.0.1 - - [18/Apr/2023 19:28:35] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.30787
+172.28.0.1 - - [18/Apr/2023 19:29:00] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.24732
+172.28.0.1 - - [18/Apr/2023 19:29:25] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.26918
+172.28.0.1 - - [18/Apr/2023 19:29:41] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.30430
+172.28.0.1 - - [18/Apr/2023 19:30:11] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.31006
+172.28.0.1 - - [18/Apr/2023 19:30:26] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.29597
+172.28.0.1 - - [18/Apr/2023 19:30:57] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.21966
+172.28.0.1 - - [18/Apr/2023 19:31:22] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.27420
+172.28.0.1 - - [18/Apr/2023 19:31:47] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27080
+172.28.0.1 - - [18/Apr/2023 19:32:12] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.14544
+172.28.0.1 - - [18/Apr/2023 19:32:38] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27719
+172.28.0.1 - - [18/Apr/2023 19:33:03] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.20313
+172.28.0.1 - - [18/Apr/2023 19:33:18] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.13027
+172.28.0.1 - - [18/Apr/2023 19:33:43] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',20.29173
+172.28.0.1 - - [18/Apr/2023 19:34:04] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.23305
+172.28.0.1 - - [18/Apr/2023 19:34:39] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.24682
+172.28.0.1 - - [18/Apr/2023 19:35:04] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.14858
+172.28.0.1 - - [18/Apr/2023 19:35:29] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.27047
+172.28.0.1 - - [18/Apr/2023 19:35:54] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.26542
+172.28.0.1 - - [18/Apr/2023 19:36:20] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.26677
+172.28.0.1 - - [18/Apr/2023 19:36:45] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.24604
+172.28.0.1 - - [18/Apr/2023 19:37:10] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.27716
+172.28.0.1 - - [18/Apr/2023 19:37:26] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.19557
+172.28.0.1 - - [18/Apr/2023 19:37:56] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.30780
+172.28.0.1 - - [18/Apr/2023 19:38:11] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.33652
+172.28.0.1 - - [18/Apr/2023 19:38:41] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.31023
+172.28.0.1 - - [18/Apr/2023 19:39:07] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.32822
+172.28.0.1 - - [18/Apr/2023 19:39:32] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.23307
+172.28.0.1 - - [18/Apr/2023 19:39:57] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.16526
+172.28.0.1 - - [18/Apr/2023 19:40:22] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.28894
+172.28.0.1 - - [18/Apr/2023 19:40:48] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.18910
+172.28.0.1 - - [18/Apr/2023 19:41:03] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.33001
+172.28.0.1 - - [18/Apr/2023 19:41:28] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.35154
+172.28.0.1 - - [18/Apr/2023 19:41:54] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.28068
+172.28.0.1 - - [18/Apr/2023 19:42:09] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',20.24546
+172.28.0.1 - - [18/Apr/2023 19:42:29] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.25225
+172.28.0.1 - - [18/Apr/2023 19:43:04] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.27828
+172.28.0.1 - - [18/Apr/2023 19:43:20] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.35409
+172.28.0.1 - - [18/Apr/2023 19:43:50] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.19581
+172.28.0.1 - - [18/Apr/2023 19:44:05] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.11233
+172.28.0.1 - - [18/Apr/2023 19:44:35] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.23990
+172.28.0.1 - - [18/Apr/2023 19:44:51] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.27967
+172.28.0.1 - - [18/Apr/2023 19:45:06] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.33761
+172.28.0.1 - - [18/Apr/2023 19:45:41] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.30041
+172.28.0.1 - - [18/Apr/2023 19:45:57] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.39956
+172.28.0.1 - - [18/Apr/2023 19:46:32] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',20.25701
+172.28.0.1 - - [18/Apr/2023 19:46:52] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.32923
+172.28.0.1 - - [18/Apr/2023 19:47:23] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.30880
+172.28.0.1 - - [18/Apr/2023 19:47:48] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.23855
+172.28.0.1 - - [18/Apr/2023 19:48:13] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.36640
+172.28.0.1 - - [18/Apr/2023 19:48:39] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.29955
+172.28.0.1 - - [18/Apr/2023 19:49:04] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.26118
+172.28.0.1 - - [18/Apr/2023 19:49:19] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.24246
+172.28.0.1 - - [18/Apr/2023 19:49:44] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.29614
+172.28.0.1 - - [18/Apr/2023 19:50:10] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.28585
+172.28.0.1 - - [18/Apr/2023 19:50:45] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',5.29617
+172.28.0.1 - - [18/Apr/2023 19:50:50] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.31064
+172.28.0.1 - - [18/Apr/2023 19:51:16] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.37692
+172.28.0.1 - - [18/Apr/2023 19:51:46] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.30885
+172.28.0.1 - - [18/Apr/2023 19:52:11] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.20464
+172.28.0.1 - - [18/Apr/2023 19:52:26] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27322
+172.28.0.1 - - [18/Apr/2023 19:52:52] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.29588
+172.28.0.1 - - [18/Apr/2023 19:53:07] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.22486
+172.28.0.1 - - [18/Apr/2023 19:53:42] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.28031
+172.28.0.1 - - [18/Apr/2023 19:54:08] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27916
+172.28.0.1 - - [18/Apr/2023 19:54:33] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.31032
+172.28.0.1 - - [18/Apr/2023 19:54:48] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.25534
+172.28.0.1 - - [18/Apr/2023 19:55:23] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.26727
+172.28.0.1 - - [18/Apr/2023 19:55:54] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27541
+172.28.0.1 - - [18/Apr/2023 19:56:19] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.13114
+172.28.0.1 - - [18/Apr/2023 19:56:44] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27082
+172.28.0.1 - - [18/Apr/2023 19:57:09] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.25975
+172.28.0.1 - - [18/Apr/2023 19:57:35] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.15006
+172.28.0.1 - - [18/Apr/2023 19:58:00] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.12463
+172.28.0.1 - - [18/Apr/2023 19:58:15] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.14961
+172.28.0.1 - - [18/Apr/2023 19:58:40] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.19689
+172.28.0.1 - - [18/Apr/2023 19:59:05] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.34567
+172.28.0.1 - - [18/Apr/2023 19:59:31] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.24606
+172.28.0.1 - - [18/Apr/2023 19:59:46] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.28495
+172.28.0.1 - - [18/Apr/2023 20:00:01] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',20.26105
+172.28.0.1 - - [18/Apr/2023 20:00:21] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',20.22111
+172.28.0.1 - - [18/Apr/2023 20:00:42] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.29893
+172.28.0.1 - - [18/Apr/2023 20:01:17] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.32564
+172.28.0.1 - - [18/Apr/2023 20:01:42] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.17952
+172.28.0.1 - - [18/Apr/2023 20:01:58] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',30.24409
+172.28.0.1 - - [18/Apr/2023 20:02:28] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.13730
+172.28.0.1 - - [18/Apr/2023 20:02:53] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',5.26626
+172.28.0.1 - - [18/Apr/2023 20:02:58] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',35.26397
+172.28.0.1 - - [18/Apr/2023 20:03:33] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.32182
+172.28.0.1 - - [18/Apr/2023 20:03:59] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.32438
+172.28.0.1 - - [18/Apr/2023 20:04:24] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',5.26665
+172.28.0.1 - - [18/Apr/2023 20:04:29] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.25903
+172.28.0.1 - - [18/Apr/2023 20:04:55] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.27631
+172.28.0.1 - - [18/Apr/2023 20:05:20] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',30.22966
+172.28.0.1 - - [18/Apr/2023 20:05:50] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',15.32865
+172.28.0.1 - - [18/Apr/2023 20:06:06] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.34771
+172.28.0.1 - - [18/Apr/2023 20:06:31] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.23679
+172.28.0.1 - - [18/Apr/2023 20:06:56] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.31501
+172.28.0.1 - - [18/Apr/2023 20:07:21] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.24576
+172.28.0.1 - - [18/Apr/2023 20:07:47] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.22546
+172.28.0.1 - - [18/Apr/2023 20:08:02] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',35.21476
+172.28.0.1 - - [18/Apr/2023 20:08:37] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.12879
+172.28.0.1 - - [18/Apr/2023 20:09:02] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.23227
+172.28.0.1 - - [18/Apr/2023 20:09:28] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',15.25235
+172.28.0.1 - - [18/Apr/2023 20:09:43] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+'wsgi_app',25.35001
+172.28.0.1 - - [18/Apr/2023 20:10:08] "POST /api/v1/cart/add HTTP/1.1" 200 -
+'wsgi_app',25.28918
+172.28.0.1 - - [18/Apr/2023 20:10:33] "POST /api/v1/clear-cart?buyer_id=1234 HTTP/1.1" 200 -
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.28.0.2:8080
+[33mPress CTRL+C to quit[0m
